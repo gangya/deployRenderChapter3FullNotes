@@ -1,0 +1,22 @@
+{
+  "name": "deployrenderchapter3fullnotes",
+  "version": "1.0.0",
+  "description": "The whole app to the internet",
+  "homepage": "https://github.com/gangya/deployRenderChapter3FullNotes#readme",
+  "bugs": {
+    "url": "https://github.com/gangya/deployRenderChapter3FullNotes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gangya/deployRenderChapter3FullNotes.git"
+  },
+  "license": "MIT",
+  "author": "gangya",
+  "type": "commonjs",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist && cd ../../fullstackopen/part2/part2-exercise-notes-server-Render/ && npm run build && cp -r dist ../../../deploymentRenderChapter3/deployRenderChapter3FullNotes/",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+  }
+}
