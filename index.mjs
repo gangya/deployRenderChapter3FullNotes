@@ -22,6 +22,7 @@ let notes = [
 
 const app = express();
 app.use(express.static('dist'));
+// It's to parse json that comes in body request
 app.use(express.json());
 app.use(cors());
 morgan.token('body', (req) => JSON.stringify(req.body));
@@ -51,9 +52,6 @@ app.delete('/api/notes/:id', (request, response) => {
   notes = notes.filter(note => note.id !== id);
   response.status(204).send();
 })
-
-// It's to parse json that comes in body request
-app.use(express.json());
 
 const generateID = () => {
   const maxId = notes.length > 0 ? Math.max(...notes.map(note => Number(note.id))) : 0; 
